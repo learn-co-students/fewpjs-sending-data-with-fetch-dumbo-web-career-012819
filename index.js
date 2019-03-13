@@ -2,6 +2,11 @@ const formData = {
   "firstName": "Angelo",
   "registryMessage": "Whassup?"
 }
+
+const configObj = {
+  "method": 'POST',
+  "body": formData
+}
 //
 // function testFunc() {
 //   return "hi"
@@ -9,10 +14,8 @@ const formData = {
 //
 //
 function registerSelf() {
-  return fetch("http://guestbook.example.com/register", {
-    method: 'POST',
-    body: formData
-  }).then(function(response){
+  return fetch("http://guestbook.example.com/register", configObj)
+    .then(function(response){
     return response.json();
   }).then(function(json){
     return json.message;
@@ -20,10 +23,8 @@ function registerSelf() {
 }
 
 function errorSelf() {
-  return fetch("http://guestbook.example.com/register-error", {
-    method: 'POST',
-    body: formData
-  }).then(function(response){
+  return fetch("http://guestbook.example.com/register-error", configObj)
+   .then(function(response){
     return response.json();
   }).then(function(json){
     return json.message;
